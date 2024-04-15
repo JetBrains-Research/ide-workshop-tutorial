@@ -1,18 +1,22 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.onewhl.ideworkshoptutorial</id>
-    <name>ide-workshop-tutorial</name>
-    <vendor>onewhl</vendor>
+    <id>ide.workshop.tutorial</id>
+    <name>IDE Workshop Tutorial</name>
+    <vendor>JetBrains Research</vendor>
+    <description>An IntelliJ IDEA plugin that provides rename function recommendations</description>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.lang</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.onewhl.ideworkshoptutorial.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <intentionAction>
+            <className>org.jetbrains.research.ide.workshop.tutorial.actions.GenerateFunctionNameAction</className>
+            <category>Function name suggestions</category>
+            <language>kotlin</language>
+        </intentionAction>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.onewhl.ideworkshoptutorial.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
 </idea-plugin>

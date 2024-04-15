@@ -1,4 +1,4 @@
-package com.github.onewhl.ideworkshoptutorial
+package org.jetbrains.research.ide.workshop.tutorial
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls

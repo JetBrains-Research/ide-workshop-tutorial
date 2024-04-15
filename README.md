@@ -1,44 +1,45 @@
-# ide-workshop-tutorial
+# IDE workshop tutorial
 
+[![JetBrains Research](https://jb.gg/badges/research.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 ![Build](https://github.com/JetBrains-Research/ide-workshop-tutorial/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Get familiar with the [template documentation][template].
-- [ ] Adjust the [pluginGroup](./gradle.properties), [plugin ID](./src/main/resources/META-INF/plugin.xml) and [sources package](./src/main/kotlin).
-- [ ] Adjust the plugin description in `README` (see [Tips][docs:plugin-description])
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html?from=IJPluginTemplate).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the `PLUGIN_ID` in the above README badges.
-- [ ] Set the [Plugin Signing](https://plugins.jetbrains.com/docs/intellij/plugin-signing.html?from=IJPluginTemplate) related [secrets](https://github.com/JetBrains/intellij-platform-plugin-template#environment-variables).
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html?from=IJPluginTemplate).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
+The project aims to demonstrate how to use OpenAI models inside the IntelliJ IDEA plugin.
+The plugin provides function name suggestions for Kotlin code.
 
-<!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+To learn more, explore
+the [IntelliJ Platform SDK documentation](https://plugins.jetbrains.com/docs/intellij/welcome.html) and check out code
+samples in the [IntelliJ Platform SDK Code Samples repository](https://github.com/JetBrains/intellij-sdk-code-samples).
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+## How to install
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
-<!-- Plugin description end -->
+The plugin requires Java 17 and IntelliJ IDEA of version 2022.3.3 or higher to work.
 
-## Installation
+To install the plugin:
 
-- Using the IDE built-in plugin system:
-  
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "ide-workshop-tutorial"</kbd> >
-  <kbd>Install</kbd>
-  
-- Manually:
+1. Open IntelliJ IDEA and go to `File`/`Settings`/`Plugins`
+2. Select the gear icon, and choose `Install Plugin from Disk...`
+3. Choose the ZIP archive `ide-workshop-tutorial-1.0.zip`
+4. Click `Apply`
+5. Restart the IDE
 
-  Download the [latest release](https://github.com/JetBrains-Research/ide-workshop-tutorial/releases/latest) and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+The plugin requires OpenAI API key. You need to configure `OPENAI_API_KEY` in environment variables on your laptop.
 
+## How to use
+
+Place the caret at the function name, click the light bulb icon (or press `⌥ Opt ↩ Enter`), and
+select `Generate function name` action in the list to generate function name
+suggestions.
+When a list of suggestions appears, click on any name in the list, and the plugin will perform an automatic rename
+method refactoring.
+
+## Contacts
+
+If you have any questions about the use cases, feel free to contact us
+using [GitHub issues](https://github.com/JetBrains-Research/ide-workshop-tutorial/issues).
 
 ---
 Plugin based on the [IntelliJ Platform Plugin Template][template].
 
 [template]: https://github.com/JetBrains/intellij-platform-plugin-template
+
 [docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation
