@@ -14,14 +14,21 @@ samples in the [IntelliJ Platform SDK Code Samples repository](https://github.co
 
 Available `Run configurations` can be found in `Gradle` → `Run Configurations`:
 
-- `Build Plugin`: Runs [`:buildPlugin`][gh:gradle-intellij-plugin-buildPlugin] task. Build the plugin and saves `.zip`
+- `Build Plugin`:
+  Runs [`:buildPlugin`](https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html#tasks-buildplugin)
+  task. Build the plugin and saves `.zip`
   archive with
   it in `build/distributions` folder.
-- `Run Plugin`: Runs [`:runIde`][gh:gradle-intellij-plugin-runIde] task. Use the *Debug* icon for plugin debugging.
-- `Run Qodana`: Runs [`:runInspections`][gh:gradle-qodana-plugin] task. Starts Qodana inspections in a Docker container
+- `Run Plugin`:
+  Runs [`:runIde`](https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html#tasks-runide) task. Use
+  the *Debug* icon for plugin debugging.
+- `Run Qodana`: Runs [`:runInspections`](https://github.com/JetBrains/gradle-qodana-plugin) task. Starts Qodana
+  inspections in a Docker container
   and serves a generated report on `localhost:8080`.
-- `Run Tests`: Runs [`:test`][gradle:lifecycle-tasks] task.
-- `Run Verifications`: Runs [`:runPluginVerifier`][gh:gradle-intellij-plugin-runPluginVerifier] task to check the plugin
+- `Run Tests`: Runs [`:test`](https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks) task.
+- `Run Verifications`:
+  Runs [`:runPluginVerifier`](https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html#tasks-runpluginverifier)
+  task to check the plugin
   compatibility against the specified IntelliJ IDEs.
 
 ## How to install
@@ -32,21 +39,22 @@ To install the plugin:
 
 1. Open IntelliJ IDEA and go to `File`/`Settings`/`Plugins`
 2. Select the gear icon, and choose `Install Plugin from Disk...`
-3. Choose the ZIP archive `ide-workshop-tutorial-1.0.zip`
+3. Choose the ZIP archive `ide-workshop-tutorial-0.0.1.zip`
 4. Click `Apply`
 5. Restart the IDE
 
-The plugin requires OpenAI API key. You need to configure `OPENAI_API_KEY` in environment variables on your laptop.
-
 ## How to use
+
+The plugin requires OpenAI API key. You need to configure `OPENAI_API_KEY` in environment variables on your laptop.
 
 Place the caret at the function name, click the light bulb icon (or press `⌥ Opt ↩ Enter`), and
 select `Generate function name` action in the list to generate function name
 suggestions.
+
 When a list of suggestions appears, click on any name in the list, and the plugin will perform an automatic rename
 method refactoring.
 
-![](https://github.com/JetBrains-Research/ide-workshop-tutorial/gif/plugin-demo.gif)
+<img src="gif/plugin-demo.gif" alt="Intention action" width="70%" style='border:1px solid #000000'/>
 
 ## Contacts
 
