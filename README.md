@@ -10,6 +10,20 @@ To learn more, explore
 the [IntelliJ Platform SDK documentation](https://plugins.jetbrains.com/docs/intellij/welcome.html) and check out code
 samples in the [IntelliJ Platform SDK Code Samples repository](https://github.com/JetBrains/intellij-sdk-code-samples).
 
+## How to build
+
+Available `Run configurations` can be found in `Gradle` → `Run Configurations`:
+
+- `Build Plugin`: Runs [`:buildPlugin`][gh:gradle-intellij-plugin-buildPlugin] task. Build the plugin and saves `.zip`
+  archive with
+  it in `build/distributions` folder.
+- `Run Plugin`: Runs [`:runIde`][gh:gradle-intellij-plugin-runIde] task. Use the *Debug* icon for plugin debugging.
+- `Run Qodana`: Runs [`:runInspections`][gh:gradle-qodana-plugin] task. Starts Qodana inspections in a Docker container
+  and serves a generated report on `localhost:8080`.
+- `Run Tests`: Runs [`:test`][gradle:lifecycle-tasks] task.
+- `Run Verifications`: Runs [`:runPluginVerifier`][gh:gradle-intellij-plugin-runPluginVerifier] task to check the plugin
+  compatibility against the specified IntelliJ IDEs.
+
 ## How to install
 
 The plugin requires Java 17 and IntelliJ IDEA of version 2022.3.3 or higher to work.
@@ -31,6 +45,8 @@ select `Generate function name` action in the list to generate function name
 suggestions.
 When a list of suggestions appears, click on any name in the list, and the plugin will perform an automatic rename
 method refactoring.
+
+![](https://github.com/JetBrains-Research/ide-workshop-tutorial/gif/plugin-demo.gif)
 
 ## Contacts
 

@@ -1,6 +1,5 @@
 package org.jetbrains.research.ide.workshop.tutorial.actions
 
-import org.jetbrains.research.ide.workshop.tutorial.llm.RequestProvider
 import com.intellij.codeInsight.intention.PsiElementBaseIntentionAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
@@ -9,7 +8,11 @@ import com.intellij.psi.PsiElement
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.kotlin.psi.KtNamedFunction
 import org.jetbrains.research.ide.workshop.tutorial.MyBundle
+import org.jetbrains.research.ide.workshop.tutorial.llm.RequestProvider
 
+/**
+ * [See documentation on intention actions in IDE](https://plugins.jetbrains.com/docs/intellij/code-intentions.html)
+ */
 class GenerateFunctionNameAction : PsiElementBaseIntentionAction() {
     override fun getText() = MyBundle.message("generate.function.name.action.text")
 
@@ -20,9 +23,8 @@ class GenerateFunctionNameAction : PsiElementBaseIntentionAction() {
     }
 
     override fun invoke(project: Project, editor: Editor?, element: PsiElement) {
-        element.let {
-            val suggestionsList: List<String> =
-                runBlocking { RequestProvider().sendRequest(element.text) }
+        runBlocking {
+            val suggestionsList: List<String> = RequestProvider().sendRequest(element.parent.text)
             val listPopup =
                 JBPopupFactory.getInstance().createListPopup(
                     FunctionNameListPopupStep(
@@ -36,5 +38,5 @@ class GenerateFunctionNameAction : PsiElementBaseIntentionAction() {
         }
     }
 
-    override fun startInWriteAction() = true
+    override fun startInWriteAction() = false
 }

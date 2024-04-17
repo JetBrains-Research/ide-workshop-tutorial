@@ -7,6 +7,9 @@ import com.intellij.psi.PsiFile
 import com.intellij.refactoring.rename.RenameProcessor
 import org.jetbrains.kotlin.psi.KtNamedFunction
 
+/**
+ * [See documentation on popups in IDE](https://plugins.jetbrains.com/docs/intellij/popups.html)
+ */
 class FunctionNameListPopupStep(
     title: String,
     methodNameSuggestions: List<String>,

@@ -103,6 +103,10 @@ tasks {
                 it.substringAfter('-', "").substringBefore('.').ifEmpty { "default" })
         }
     }
+
+    buildSearchableOptions {
+        enabled = false
+    }
 }
 
 configurations.all {

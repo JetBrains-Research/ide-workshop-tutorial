@@ -74,7 +74,7 @@ class MyHttpClientService : Disposable {
             val openAIResponse = json.decodeFromStream<OpenAIResponse>(inputStream)
             val choice = openAIResponse.choices.firstOrNull()
             if (choice != null) {
-                result = choice.message.content.split(",").map { it.trim() }
+                result = choice.message.content.replace("`", "").split(",").map { it.trim() }
             }
         }
         return result

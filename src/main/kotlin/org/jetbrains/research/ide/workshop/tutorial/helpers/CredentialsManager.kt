@@ -3,6 +3,7 @@ package org.jetbrains.research.ide.workshop.tutorial.helpers
 import com.intellij.credentialStore.CredentialAttributes
 import com.intellij.credentialStore.generateServiceName
 import com.intellij.ide.passwordSafe.PasswordSafe
+import com.intellij.openapi.application.runReadAction
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.service
 
@@ -24,7 +25,7 @@ class CredentialsManager {
 
     private fun getCredentials(key: String): String? {
         val attributes = createCredentialAttributes(key)
-        val credentials = PasswordSafe.instance.get(attributes)
+        val credentials = runReadAction { PasswordSafe.instance.get(attributes) }
         return credentials?.getPasswordAsString()
     }
 
