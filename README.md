@@ -1,3 +1,6 @@
+Repository archived by abarilo as no longer maintained
+
+
 # IDE workshop tutorial
 
 [![JetBrains Research](https://jb.gg/badges/research.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
